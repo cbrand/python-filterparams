@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 requires = [
-    'funcparserlib >= 0.3.6',
+    'funcparserlib>=0.3.6',
     'webob',
 ]
 
