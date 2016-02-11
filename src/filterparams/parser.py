@@ -32,8 +32,9 @@ FILTER_BINDING_KEY = 'filter[binding]'
 
 class Parser:
 
-    def __init__(self, query_dict):
+    def __init__(self, query_dict, **kwargs):
         self._query_dict = query_dict
+        self.default_filter = kwargs.get('default_filter')
 
     @property
     def _query_dict(self):
@@ -66,7 +67,10 @@ class Parser:
         if matcher is None:
             return None
         name = matcher.group('name')
-        filter_name = matcher.group('filter_name')
+        filter_name = (
+            matcher.group('filter_name') or
+            self.default_filter
+        )
         alias = matcher.group('alias') or name
         return Parameter(
             name=name,

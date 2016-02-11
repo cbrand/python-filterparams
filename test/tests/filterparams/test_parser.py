@@ -1,7 +1,5 @@
 # -*- encoding: utf-8 -*-
 
-from unittest import TestCase
-
 from werkzeug.datastructures import MultiDict
 
 from filterparams import parse
@@ -10,10 +8,12 @@ from filterparams.obj import (
     Or,
 )
 
+from tests.filterparams.base_parser_test import (
+    BaseParserTest
+)
 
-class TestParser(TestCase):
-    def setUp(self):
-        self.params = {}
+
+class TestParser(BaseParserTest):
 
     @property
     def query(self):
@@ -24,20 +24,6 @@ class TestParser(TestCase):
                 len(self.query.params),
                 0,
         )
-
-    def _add_param(self, name, **kwargs):
-        items = [name]
-        if 'filter' in kwargs:
-            items.append(kwargs['filter'])
-            if 'alias' in kwargs:
-                items.append(kwargs['alias'])
-        key = 'filter[param]%s' % (
-            ''.join('[%s]' % item for item in items)
-        )
-        self.params[key] = kwargs.get('value', None)
-
-    def _add_binding(self, binding):
-        self.params['filter[binding]'] = binding
 
     def test_param_parse(self):
         self._add_param(
