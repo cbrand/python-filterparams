@@ -38,7 +38,9 @@ def parse(sequence, query):
     op = lambda s: a(Token('Op', s)) >> tokval
     op_ = lambda s: skip(op(s))
 
-    create_param = lambda param_name: query.get_param(param_name)
+    create_param = lambda param_name: query.get_aliased_param(
+            param_name
+    )
     make_and = lambda params: And(params[0], params[1])
     make_or = lambda params: Or(params[0], params[1])
     make_not = lambda inner: Not(inner)

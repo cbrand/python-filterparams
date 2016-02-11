@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 requires = [
     'funcparserlib>=0.3.6',
-    'webob',
+    'Werkzeug',
 ]
 
 VERSION = '1.0.0'

@@ -6,6 +6,7 @@ from filterparams.obj import (
     Parameter,
     And,
     Or,
+    Order,
     Not,
 )
 
@@ -82,4 +83,28 @@ class TestObj(TestCase):
         self.assertNotEqual(
             Not("q1"),
             "q1"
+        )
+
+    def test_order_direction_set_ascending(self):
+        self.assertEqual(
+            Order('name', 'asc').direction,
+            'asc'
+        )
+
+    def test_order_direction_set_descending(self):
+        self.assertEqual(
+            Order('name', 'desc').direction,
+            'desc'
+        )
+
+    def test_order_direction_set_default(self):
+        self.assertEqual(
+            Order('name', None).direction,
+            'asc'
+        )
+
+    def test_order_direction_set_other(self):
+        self.assertEqual(
+            Order('name', 'nothing').direction,
+            'asc'
         )
