@@ -96,6 +96,7 @@ htmlcov/
 .coverage.*
 .cache
 nosetests.xml
+nosexunit.xml
 coverage.xml
 *,cover
 .hypothesis/
@@ -115,3 +116,6 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+coverage/
+htmlcov/

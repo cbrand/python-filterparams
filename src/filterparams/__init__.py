@@ -1,7 +1,5 @@
 # -*- encoding: utf-8 -*-
 
-from functools import partial
-
 from .parser import Parser
 from .safe_parser import SafeParser
 
