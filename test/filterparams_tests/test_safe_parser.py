@@ -2,7 +2,7 @@
 
 from filterparams import build_parser
 
-from tests.filterparams.base_parser_test import (
+from filterparams_tests.base_parser_test import (
     BaseParserTest
 )
 
@@ -12,7 +12,7 @@ class TestSafeParser(BaseParserTest):
     def setUp(self):
         self.filters = []
         self.default_filter = None
-        super().setUp()
+        super(TestSafeParser, self).setUp()
 
     @property
     def parser(self):

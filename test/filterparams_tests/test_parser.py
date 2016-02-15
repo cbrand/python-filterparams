@@ -8,7 +8,7 @@ from filterparams.obj import (
     Or,
 )
 
-from tests.filterparams.base_parser_test import (
+from filterparams_tests.base_parser_test import (
     BaseParserTest
 )
 
