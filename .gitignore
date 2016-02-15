@@ -119,3 +119,5 @@ target/
 
 coverage/
 htmlcov/
+
+pylint.log
