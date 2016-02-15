@@ -1,9 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 import sys
-import os
 
-from nose.commands import nosetests as _nosetests
 from setuptools import setup, find_packages
 from distutils.command.build_py import build_py as _build_py
 
@@ -64,42 +62,48 @@ class build_py27(_build_py):
             except Exception as e:
                 print("3to2 error (%s => %s): %s" % (source,target,e))
 
+try:
+    from nose.commands import nosetests as _nosetests
+    NO_NOSE = False
 
-class nosetests(_nosetests):
+    class nosetests(_nosetests):
 
-    def run(self):
-        """ensure tests are capable of being run, then
-        run nose.main with a reconstructed argument list"""
-        # Ensure metadata is up-to-date
-        build_py = self.get_finalized_command('build_py')
-        build_py.inplace = 0
-        build_py.run()
-        bpy_cmd = self.get_finalized_command("build_py")
-        build_path = bpy_cmd.build_lib
+        def run(self):
+            """ensure tests are capable of being run, then
+            run nose.main with a reconstructed argument list"""
+            # Ensure metadata is up-to-date
+            build_py = self.get_finalized_command('build_py')
+            build_py.inplace = 0
+            build_py.run()
+            bpy_cmd = self.get_finalized_command("build_py")
+            build_path = bpy_cmd.build_lib
 
-        # Build extensions
-        egg_info = self.get_finalized_command('egg_info')
-        egg_info.egg_base = build_path
-        egg_info.run()
+            # Build extensions
+            egg_info = self.get_finalized_command('egg_info')
+            egg_info.egg_base = build_path
+            egg_info.run()
 
-        build_ext = self.get_finalized_command('build_ext')
-        build_ext.inplace = 0
-        build_ext.run()
+            build_ext = self.get_finalized_command('build_ext')
+            build_ext.inplace = 0
+            build_ext.run()
 
-        _nosetests.run(self)
+            _nosetests.run(self)
+except ImportError:
+    NO_NOSE = True
 
 
 if sys.version_info[0] < 3:
     setup_requires.append('pip')
     cmd_class['build_py'] = build_py27
-    cmd_class['nosetests'] = nosetests
+    if not NO_NOSE:
+        cmd_class['nosetests'] = nosetests
 
 
 package_dir = {
     '': 'src',
 }
 packages = find_packages('src')
-if 'nosetests' in sys.argv:
+if 'nosetests' in sys.argv and not NO_NOSE:
     packages += find_packages('test')
     packages = [
         item
