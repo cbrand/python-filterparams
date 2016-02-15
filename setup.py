@@ -95,8 +95,9 @@ except ImportError:
 if sys.version_info[0] < 3:
     setup_requires.append('pip')
     cmd_class['build_py'] = build_py27
-    if not NO_NOSE:
-        cmd_class['nosetests'] = nosetests
+
+if not NO_NOSE:
+    cmd_class['nosetests'] = nosetests
 
 
 package_dir = {
