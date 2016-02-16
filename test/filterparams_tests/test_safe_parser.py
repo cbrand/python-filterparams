@@ -28,7 +28,7 @@ class TestSafeParser(BaseParserTest):
     def test_filter_not_present(self):
         self._add_param('test', filter='eq')
         with self.assertRaises(ValueError):
-            self.query
+            self.query  # pylint: disable=pointless-statement
 
     def test_filter_present(self):
         self.filters.append('eq')

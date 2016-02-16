@@ -85,19 +85,19 @@ class TestObj(TestCase):
             "q1"
         )
 
-    def test_order_direction_set_ascending(self):
+    def test_order_direction_ascending(self):
         self.assertEqual(
             Order('name', 'asc').direction,
             'asc'
         )
 
-    def test_order_direction_set_descending(self):
+    def test_order_direction_descending(self):
         self.assertEqual(
             Order('name', 'desc').direction,
             'desc'
         )
 
-    def test_order_direction_set_default(self):
+    def test_order_direction_default(self):
         self.assertEqual(
             Order('name', None).direction,
             'asc'

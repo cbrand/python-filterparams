@@ -25,10 +25,13 @@ def flatten(to_flatten_list):
 
 
 def create_key_value_pairs(dictionary, key):
-    if hasattr(dictionary, 'getall'):
-        get_values = lambda key: dictionary.getall(key)
-    else:
-        get_values = lambda key: flatten([dictionary.get(key)])
+    def get_values(key):
+        if hasattr(dictionary, 'getall'):
+            data = dictionary.getall(key)
+        else:
+            data = [dictionary.get(key)]
+        return flatten(data)
+
 
     values = get_values(key)
     return zip([key] * len(values), values)

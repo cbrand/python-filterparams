@@ -10,10 +10,10 @@ class Query:
 
     def add(self, name, **kwargs):
         return self.add_param(
-                Parameter(
-                        name=name,
-                        **kwargs
-                )
+            Parameter(
+                name=name,
+                **kwargs,
+            )
         )
 
     @property
@@ -55,6 +55,7 @@ class Parameter:
 class Order:
     def __init__(self, param, direction=None):
         self.name = param
+        self._direction = 'asc'
         self.direction = direction
 
     @property

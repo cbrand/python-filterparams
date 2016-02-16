@@ -21,8 +21,8 @@ class TestParser(BaseParserTest):
 
     def test_empty_parser(self):
         self.assertEqual(
-                len(self.query.params),
-                0,
+            len(self.query.params),
+            0,
         )
 
     def test_param_parse(self):
@@ -49,7 +49,7 @@ class TestParser(BaseParserTest):
         query = self.query
         self.assertEqual(query.get_param('name'), query.param_order)
 
-    def test_multiple_param_default_binding(self):
+    def test_multiple_param_default(self):
         self._add_param('first_name')
         self._add_param('last_name')
         query = self.query
@@ -78,7 +78,7 @@ class TestParser(BaseParserTest):
         first_order = self.query.orders[0]
         self.assertEqual(first_order.name, 'first_name')
 
-    def test_order_application_orientation_desc(self):
+    def test_order_application_desc(self):
         self._add_order_test()
         first_order = self.query.orders[0]
         self.assertEqual(first_order.direction, 'desc')
@@ -95,7 +95,7 @@ class TestParser(BaseParserTest):
         ]
         self.assertEqual(len(self.query.orders), 2)
 
-    def test_order_application_orentation_asc(self):
+    def test_order_application_asc(self):
         self._add_order_test()
         second_order = self.query.orders[1]
         self.assertEqual(second_order.direction, 'asc')

@@ -21,11 +21,11 @@ FILTER_DETECTOR = re.compile(
 )
 ORDER_KEY = 'filter[order]'
 ORDER_PARAM_FILTER = re.compile(
-        r'^(?:'
-        r'(?P<sort_order>desc|asc)\((?P<order_param>\w+)\)'
-        r'|'
-        r'(?P<unsorted_order_param>\w+)'
-        r')$'
+    r'^(?:'
+    r'(?P<sort_order>desc|asc)\((?P<order_param>\w+)\)'
+    r'|'
+    r'(?P<unsorted_order_param>\w+)'
+    r')$'
 )
 FILTER_BINDING_KEY = 'filter[binding]'
 
@@ -33,6 +33,7 @@ FILTER_BINDING_KEY = 'filter[binding]'
 class Parser:
 
     def __init__(self, query_dict, **kwargs):
+        self._safe_multi_dict = None
         self._query_dict = query_dict
         self.default_filter = kwargs.get('default_filter')
 
@@ -108,7 +109,8 @@ class Parser:
         else:
             return self._default_param_ordering(query)
 
-    def _default_param_ordering(self, query):
+    @staticmethod
+    def _default_param_ordering(query):
         binding = None
         for param in query.params:
             if binding is None:

@@ -40,18 +40,18 @@ class TestBinding(TestCase):
         self.params = "q2"
         self.add_param("q1")
         with self.assertRaises(KeyError):
-            self.parsed_result
+            self.parsed_result  # pylint: disable=pointless-statement
 
     def test_unparsable(self):
         self.add_param("q2")
         self.params = "q2|"
         with self.assertRaises(NoParseError):
-            self.parsed_result
+            self.parsed_result  # pylint: disable=pointless-statement
 
     def test_unlexable(self):
         self.params = "ä1§"
         with self.assertRaises(LexerError):
-            self.parsed_result
+            self.parsed_result  # pylint: disable=pointless-statement
 
     def test_not(self):
         self.params = "!q1"
