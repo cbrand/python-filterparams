@@ -12,6 +12,15 @@ standard. Because of this the syntax is completely compatible with
 the standard and encapsulates everything in the `filter` query 
 parameter.
 
+## Installation ##
+
+The package is available on [PyPi](https://pypi.python.org/pypi/filterparams).
+You can install it through
+
+```
+pip install filterparams
+```
+
 ## Example ##
 
 Given the URL (non URL escaped for better readability):
