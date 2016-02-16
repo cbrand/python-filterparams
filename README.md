@@ -233,6 +233,10 @@ Again, as soon as the API is stable I'll probably add a JavaScript library.
 - Depending on your backend it might not make sense to support all features (ordering, parameter binding) of the
 language. You might still want to use it to parse your basic parameters though and ignore the rest.
 
+## License ##
+
+The project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
 ## Used Libraries ##
 
 For evaluating the filter params ordering the [funcparserlib](https://github.com/vlasovskikh/funcparserlib) ([MIT license](https://github.com/vlasovskikh/funcparserlib/blob/master/LICENSE))
