@@ -10,10 +10,7 @@ class Query:
 
     def add(self, name, **kwargs):
         return self.add_param(
-            Parameter(
-                name=name,
-                **kwargs,
-            )
+            Parameter(name=name, **kwargs)
         )
 
     @property
