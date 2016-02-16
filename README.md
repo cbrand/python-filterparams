@@ -22,7 +22,17 @@ Given the URL (non URL escaped for better readability):
 It can be parsed by the given function:
 
 ```python
+from urllib.parse import urlsplit, parse_qs
 from filterparams import build_parser
+
+url = urlsplit(
+    '/users?filter[param][name][like][no_default_name]=doe'
+    '&filter[param][first_name]=doe%&filter[binding]='
+    '(!no_brand_name&first_name)&filter[order]=name'
+    '&filter[order]=desc(first_name)'
+)
+params = parse_qs(url)
+
 valid_filters = ['eq', 'like']
 default_filter = 'eq'
 
@@ -31,9 +41,7 @@ parser = build_parser(
     default_filter=default_filter,
 )
 
-query = parser(
-    
-)
+query = parser(params)
 ```
 
 Would parse the data. You can access the parsed filters through
