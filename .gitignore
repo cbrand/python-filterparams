@@ -121,3 +121,6 @@ coverage/
 htmlcov/
 
 pylint.log
+
+
+/do_upload.sh
