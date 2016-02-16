@@ -88,6 +88,13 @@ class TestParser(BaseParserTest):
         second_order = self.query.orders[1]
         self.assertEqual(second_order.name, 'last_name')
 
+    def test_order_with_normal_dict(self):
+        self.params['filter[order]'] = [
+            'desc(first_name)',
+            'last_name',
+        ]
+        self.assertEqual(len(self.query.orders), 2)
+
     def test_order_application_orentation_asc(self):
         self._add_order_test()
         second_order = self.query.orders[1]
