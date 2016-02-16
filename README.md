@@ -21,6 +21,10 @@ You can install it through
 pip install filterparams
 ```
 
+The library was tested and should work with Python 2.7 and every 
+Python 3 release. It was also tested to be compatible with pypy
+and pypy3.
+
 ## Example ##
 
 Given the URL (non URL escaped for better readability):
