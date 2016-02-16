@@ -244,7 +244,7 @@ The project is licensed under the [MIT License](https://opensource.org/licenses/
 ## Used Libraries ##
 
 For evaluating the filter params ordering the [funcparserlib](https://github.com/vlasovskikh/funcparserlib) ([MIT license](https://github.com/vlasovskikh/funcparserlib/blob/master/LICENSE))
-module is used. Additionally the [Werkzeug](https://github.com/mitsuhiko/werkzeug/blob/master/LICENSE) package is used for supporting dicts with multiple values in the same key.
+module is used. Additionally the [Werkzeug](https://github.com/mitsuhiko/werkzeug) ([BSD license](https://github.com/mitsuhiko/werkzeug/blob/master/LICENSE)) package is used for supporting dicts with multiple values in the same key.
 
 ## Other Languages ##
 
