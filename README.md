@@ -44,7 +44,7 @@ url = urlsplit(
     '(!no_brand_name&first_name)&filter[order]=name'
     '&filter[order]=desc(first_name)'
 )
-params = parse_qs(url)
+params = parse_qs(url.query)
 
 valid_filters = ['eq', 'like']
 default_filter = 'eq'
