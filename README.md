@@ -41,7 +41,7 @@ from filterparams import build_parser
 url = urlsplit(
     '/users?filter[param][name][like][no_brand_name]=doe'
     '&filter[param][first_name]=doe%&filter[binding]='
-    '(!no_brand_name&first_name)&filter[order]=name'
+    '(!no_brand_name%26first_name)&filter[order]=name'
     '&filter[order]=desc(first_name)'
 )
 params = parse_qs(url.query)
