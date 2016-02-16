@@ -13,7 +13,7 @@ requires = [
     'Werkzeug',
 ]
 
-VERSION = '1.0.0'
+VERSION = '1.0.1'
 
 cmd_class = {}
 
