@@ -252,7 +252,7 @@ At the moment there does only exist a binding for mapping the filter
 language on top of SQLAlchemy's declarative models. Other ones will
 be added to the list if they become available:
 
-- [sqlalchemy-filterparams](https://github.com/cbrand/python-filterparams) - Mapper for [SQLAlchemy](http://www.sqlalchemy.org/) declarative models.
+- [sqlalchemy-filterparams](https://github.com/cbrand/python-sqlalchemy-filterparams) - Mapper for [SQLAlchemy](http://www.sqlalchemy.org/) declarative models.
 
 ## Other Languages ##
 
