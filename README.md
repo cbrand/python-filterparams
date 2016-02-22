@@ -246,6 +246,14 @@ The project is licensed under the [MIT License](https://opensource.org/licenses/
 For evaluating the filter params ordering the [funcparserlib](https://github.com/vlasovskikh/funcparserlib) ([MIT license](https://github.com/vlasovskikh/funcparserlib/blob/master/LICENSE))
 module is used. Additionally the [Werkzeug](https://github.com/mitsuhiko/werkzeug) ([BSD license](https://github.com/mitsuhiko/werkzeug/blob/master/LICENSE)) package is used for supporting dicts with multiple values in the same key.
 
+## Bindings ##
+
+At the moment there does only exist a binding for mapping the filter
+language on top of SQLAlchemy's declarative models. Other ones will
+be added to the list if they become available:
+
+- [sqlalchemy-filterparams](https://github.com/cbrand/python-filterparams) - Mapper for [SQLAlchemy](http://www.sqlalchemy.org/) declarative models.
+
 ## Other Languages ##
 
 This is a list of projects implementing the same API for other languages.
